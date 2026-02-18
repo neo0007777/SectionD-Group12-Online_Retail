@@ -1,164 +1,223 @@
-🛒 Global Retail Transaction Analysis & Customer Segmentation
-1️⃣ Project Overview
 
-This project analyzes transactional data from an international e-commerce retailer to uncover:
+# 🛒 Global Retail Transaction Analysis & Customer Segmentation
 
-High-value customers (RFM Analysis)
+## 📌 Project Overview
 
-Sales trends by country and time
+This project analyzes transactional data from a global e-commerce retailer to uncover key revenue drivers, customer behavior patterns, and operational insights. The goal is to transform raw transactional data into actionable business intelligence using data cleaning, exploratory analysis, and dashboard visualization.
 
-Return/refund patterns
+The project focuses on identifying high-value customers, understanding sales trends, analyzing product performance, and detecting return patterns to support strategic decision-making.
 
-Product performance insights
+---
 
-Customer segmentation opportunities
+## 🎯 Objectives
 
-The objective is to transform messy raw data into actionable business insights that support better marketing, inventory, and revenue strategies.
+* Analyze total revenue, sales volume, and return rate
+* Identify top-performing products and revenue contributors
+* Understand customer purchasing behavior and segmentation
+* Detect peak sales hours and seasonal trends
+* Analyze return and cancellation patterns
+* Build an interactive dashboard for business insights
 
-2️⃣ Dataset Details
+---
 
-Dataset Name: Online Retail II
-Source: UCI Machine Learning Repository / Kaggle
-Sector: Retail (E-commerce)
-Rows (Original): ~500,000+
-Rows (Sample Used): 10,000–15,000 (for Google Sheets performance)
-Columns: 8
+## 📊 Dataset Information
 
-Column Name	Description
-InvoiceNo	Unique transaction ID
-StockCode	Product code
-Description	Product name
-Quantity	Number of items purchased
-InvoiceDate	Date & time of transaction
-UnitPrice	Price per item
-CustomerID	Unique customer ID
-Country	Country of purchase
-3️⃣ File Details
-File Name	Description
-raw_retail_sample.csv	Cleaned subset of original dataset
-Master_Google_Sheet	Contains Raw Data, Cleaned Data, Pivot Tables
-Dashboard	Visual analytics summary
-Returns_Analysis	Analysis of cancelled orders
-RFM_Sheet	Customer segmentation sheet
-4️⃣ Data Dictionary
-🔎 Column Issues & Cleaning Log
-Column	Issue Found	Action Taken	Reason
-CustomerID	~20% missing	Labeled as "Guest_User"	Preserve transaction data
-Quantity	Negative values	Separated into Returns sheet	Identify cancellations
-InvoiceNo	Some start with “C”	Tagged as Cancelled	Business logic
-StockCode	POST, PADS, M etc.	Removed	Not actual products
-InvoiceDate	Text format	Converted to DateTime	Enable time analysis
-5️⃣ Data Cleaning Notes
+**Dataset Name:** Online Retail II
 
-✔ Filtered cancelled transactions (InvoiceNo starting with “C”)
-✔ Created separate Returns table
-✔ Removed non-product stock codes
-✔ Converted InvoiceDate to proper date format
-✔ Standardized Country names
-✔ Created new column: Total Revenue = Quantity × UnitPrice
+**Source:** UCI Machine Learning Repository / Kaggle
 
-6️⃣ Dataset Analysis (Include Screenshots Here)
+**Industry:** E-commerce / Retail
 
-📸 Insert screenshots of:
+### Dataset Size
 
-Raw Data (before cleaning)
+| Metric        | Value                       |
+| ------------- | --------------------------- |
+| Original Rows | 500,000+                    |
+| Sample Used   | 10,000–15,000              |
+| Columns       | 8                           |
+| Countries     | Multiple (Global customers) |
+| Time Period   | 2009–2011                  |
 
-Cleaned Data sheet
+---
 
-Pivot table example
+## 📁 Dataset Schema
 
-Dashboard charts
+| Column      | Description                   |
+| ----------- | ----------------------------- |
+| InvoiceNo   | Unique transaction identifier |
+| StockCode   | Product code                  |
+| Description | Product name                  |
+| Quantity    | Number of items purchased     |
+| InvoiceDate | Date and time of purchase     |
+| UnitPrice   | Price per item                |
+| CustomerID  | Unique customer identifier    |
+| Country     | Customer location             |
 
-7️⃣ Key Insights & Statistics
-📊 Sales Insights
+---
 
-Top Revenue Country: United Kingdom
+## 🧹 Data Cleaning & Preprocessing
 
-Most Sold Product Category: Home & Decorative Items
+Several preprocessing steps were performed to ensure data quality and analytical accuracy:
 
-Peak Sales Month: November–December (Holiday Season)
+### Data Cleaning Actions
 
-🔄 Returns Analysis
+* Removed invalid stock codes (POST, PADS, etc.)
+* Converted InvoiceDate into proper DateTime format
+* Created new calculated column:
 
-Return rate ≈ X% of total transactions
+  **TotalRevenue = Quantity × UnitPrice**
+* Separated return transactions (negative quantity)
+* Identified cancelled invoices (InvoiceNo starting with "C")
+* Handled missing CustomerID values by labeling as "Guest_User"
+* Standardized country names and formats
 
-Certain countries show higher refund frequency
+---
 
-Some SKUs have significantly high return ratios
+## 📈 Key Performance Indicators (KPIs)
 
-👤 Customer Insights (RFM)
+Based on analysis and dashboard results:
 
-Top 10% customers contribute ~60% revenue
+| KPI                 | Value          |
+| ------------------- | -------------- |
+| Total Revenue       | £203,729.90   |
+| Total Items Sold    | 122,855        |
+| Total Return Value  | £8,636.56     |
+| Return Rate         | 3.08%          |
+| Top Revenue Country | United Kingdom |
 
-High Recency + High Frequency = Loyal Segment
+These metrics are also visualized in the dashboard KPI section.
 
-Identified 3 major customer clusters:
+---
 
-VIP Customers
+## 📊 Dashboard Features
 
-Regular Buyers
+The interactive dashboard includes:
 
-At-Risk Customers
+### Revenue Analysis
 
-8️⃣ Dashboard Summary
+* Monthly revenue trend
+* Revenue by hour of day
+* Revenue by country
 
-Dashboard includes:
+### Product Analysis
 
-Sales by Country (Map/Bar Chart)
+* Top 10 best-selling products
+* Product revenue contribution
 
-Monthly Revenue Trend (Line Chart)
+### Customer Analysis
 
-Top 10 Products (Bar Chart)
+* Customer segmentation (Guest vs Registered users)
+* High-value customer identification
 
-Customer Segmentation Pie Chart
+### Returns Analysis
 
-Return Rate KPI
+* Return rate calculation
+* Return value tracking
+* Cancellation identification
 
-9️⃣ Advanced Analysis (Bonus Section)
-✅ RFM Analysis
+---
 
-Recency: Days since last purchase
+## 🔍 Key Insights
 
-Frequency: Number of transactions
+### Revenue Insights
 
-Monetary: Total spend
+* Total revenue generated: £203,729.90
+* United Kingdom contributes the majority of total revenue
+* Sales peak between **11 AM and 3 PM**
+* Strong seasonal performance during holiday months
 
-Customers grouped into segments using RFM score ranking.
+### Customer Insights
 
-✅ Cohort Analysis
+* Registered customers contribute the majority of revenue
+* A small percentage of customers generate a large portion of total sales
+* Customer segmentation reveals VIP, Regular, and At-Risk customers
 
-Grouped customers by first purchase month
+### Product Insights
 
-Measured retention over time
+* Home and decorative items dominate sales
+* Top products contribute disproportionately to revenue
+* Product-level analysis helps identify high-performing SKUs
 
-✅ Market Basket (Optional)
+### Returns Insights
 
-Identified frequently co-purchased items
+* Overall return rate is low (3.08%)
+* Negative quantity transactions indicate returns or cancellations
+* Some products have higher return frequency
 
-🔮 Forecasting (Optional Bonus)
+---
 
-Used monthly revenue trends to project:
+## 👤 Customer Segmentation (RFM Analysis)
 
-Expected Q1 sales growth
+Customer segmentation was performed using the RFM model:
 
-Seasonal spikes prediction
+* **Recency:** Days since last purchase
+* **Frequency:** Number of transactions
+* **Monetary:** Total revenue generated
 
-Can be done using:
+Customer segments identified:
 
-Moving average
+* VIP Customers
+* Regular Customers
+* At-Risk Customers
+* Guest Users
 
-Linear trend line
+This segmentation enables targeted marketing strategies.
 
-Google Sheets FORECAST() function
+---
 
-💡 Business Recommendations
+## 🛠 Tools & Technologies Used
 
-Target VIP customers with loyalty rewards
+* Google Sheets
+* Pivot Tables
+* Data Cleaning Techniques
+* Data Visualization
+* RFM Customer Segmentation
+* Business Intelligence Dashboarding
 
-Investigate high-return SKUs
+---
 
-Launch country-specific promotions
+## 💼 Business Impact & Recommendations
 
-Bundle frequently purchased products
+Based on analysis, the following strategies are recommended:
 
-Retarget “At-Risk” customers with email campaigns
+### Customer Strategy
+
+* Target VIP customers with loyalty programs
+* Retarget at-risk customers with promotions
+* Encourage guest users to register
+
+### Product Strategy
+
+* Promote top-performing products
+* Investigate high-return products
+* Bundle frequently purchased items
+
+### Marketing Strategy
+
+* Focus campaigns during peak sales hours
+* Launch country-specific promotions
+* Use customer segmentation for personalized marketing
+
+---
+
+## 🚀 Future Improvements
+
+* Implement predictive revenue forecasting
+* Perform cohort analysis for customer retention
+* Apply market basket analysis for cross-selling
+* Build automated dashboard using Power BI or Python
+* Integrate real-time data pipelines
+
+---
+
+## 📊 Conclusion
+
+This project demonstrates the complete data analytics workflow:
+
+* Raw data cleaning
+* Exploratory analysis
+* Customer segmentation
+* Dashboard creation
+* Business insight generation
+
+The analysis enables data-driven decision-making for improving revenue, customer retention, and operational efficiency.
