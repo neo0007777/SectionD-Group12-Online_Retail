@@ -210,7 +210,7 @@ Based on analysis, the following strategies are recommended:
 
 ---
 
-## 📊 Conclusion
+## 📊 Conclusion.
 
 This project demonstrates the complete data analytics workflow:
 
