@@ -15,7 +15,7 @@
 
 ---
 
-## 2. Data Dictionary & Cleaning Log (Tab 2)
+## 2. Data Dictionary & Cleaning Log (Tab 2).
 
 *This table tracks all modifications made to the raw data to ensure Data Quality.*
 
